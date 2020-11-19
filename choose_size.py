@@ -11,6 +11,6 @@ def chooseSize(sizes):
         print("¡Debe seleccionar una opción válida!")
         chooseSize(sizes)
     else:
-        return option
+        return sizes[option]
 
         

@@ -26,9 +26,8 @@ def main():
         print("     ¡Bienvenido!")
     print("***** Pizza N°", len(order)+1, "******")
     print('***********************')
-    size_option = chooseSize(sizes)  # Almacena el key de tamaño escogido
 
-    selected_size = sizes[size_option] # Crea lista TEMPORAL con tamaño y precio correspondiente
+    selected_size = chooseSize(sizes) # Crea lista TEMPORAL con tamaño y precio correspondiente
     print(selected_size)
     pizza.append(selected_size) # Coloca el tamaño en la lista de la PIZZA
     print(pizza)
