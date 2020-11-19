@@ -11,15 +11,27 @@ print('***********************')
 print('*    PIZZERÍA UCAB    *')
 print('***********************')
 
-sizes = [(1,"Pequeña"), (2,"Mediana"), (3, "Grande")] # Lista de tuplas donde cada elemento es un identificador y su tamaño
-n_pizza = 1 # Número de pizza a pedir (Veces de ejecución del menú principal)
+sizes = {
+    "p": ["Personal", 280],
+    "m": ["Mediana", 430],
+    "g": ["Grande", 580],
+}
+
+order = [] # Lista para la ORDEN, que contiene pizzas
+pizza = [] # Lista para la PIZZA, que contiene tamaño e ingredientes
+selected_size = [] # Lista para guardar el tamaño en cada iteración
 
 def main():
-    if n_pizza == 1:
+    if order == None:
         print("     ¡Bienvenido!")
-    print("***** Pizza N°", n_pizza, "******")
+    print("***** Pizza N°", len(order)+1, "******")
     print('***********************')
-    selected_size = chooseSize(sizes) - 1 # Almacena el ID de tamaño escogido
-    print("Pizza", sizes[selected_size][1])
+    size_option = chooseSize(sizes)  # Almacena el key de tamaño escogido
+
+    selected_size = sizes[size_option] # Crea lista TEMPORAL con tamaño y precio correspondiente
+    print(selected_size)
+    pizza.append(selected_size) # Coloca el tamaño en la lista de la PIZZA
+    print(pizza)
+    
 main()
     

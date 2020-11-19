@@ -1,14 +1,16 @@
 def chooseSize(sizes):
     print("Elija un tamaño:")
-
+    i = 1
     # Iteración que recorre la lista de tamaños dispolibles y los muestra
-    for size in sizes:
-        print("\t",size[0], "-",size[1])
-    opcion = int(input("Opción: "))
+    for key, value in sizes.items():
+        print("\t",key, "-",value[0])
+    option = input("Opción: ")
 
     # Valida que ingresó una opción válida
-    if opcion > len(sizes):
+    if option not in sizes.keys():
         print("¡Debe seleccionar una opción válida!")
         chooseSize(sizes)
     else:
-        return opcion
+        return option
+
+        
