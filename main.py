@@ -38,9 +38,9 @@ def main():
           
     while add_pizza is True:
         quantity_pizza+=1
-        order[quantity_pizza] = newPizza(sizes,ingredients,drinks,quantity_pizza) # Pedir nueva pizza
+        order[quantity_pizza] = newPizza(sizes,ingredients,quantity_pizza) # Pedir nueva pizza
         add_pizza = anotherPizza(quantity_pizza)
-    selected_drinks = getDrinks(drinks,quantity_pizza)
+    #selected_drinks = getDrinks(drinks,quantity_pizza)
     order["Drinks"] = selected_drinks
     
     clientInfo = delivery()
@@ -49,16 +49,26 @@ def main():
     showHeader(quantity_pizza)
     print ("***** RESUMEN DE COMPRA *****")
     print ("Su pedido tiene un total de", quantity_pizza, "pizzas")
+
     for i in range(len(order)-1):
-        print(f'Una pizza {order[i+1]["Size"][0]} con', end = ' ')
-        for j in range(len(order[i+1]["Ingredients"])):
-            print (order[i+1]["Ingredients"][j][0], end= ' ')
-        print ("por un monto de ")
+        if order[i+1]["Ingredients"] !=[]:
+            print(f'Una pizza {order[i+1]["Size"][0]} con', end = ' ')
+            for j in range(len(order[i+1]["Ingredients"])):
+                if i == len(order[i+1]["Ingredients"])-1:
+                    print (order[i+1]["Ingredients"][i][0])
+                elif i == len(order[i+1]["Ingredients"])-2:
+                    print (order[i+1]["Ingredients"][i][0], end= ' y ')
+                else: 
+                    print (order[i+1]["Ingredients"][i][0], end= ', ')
+            print ("por un monto de ")
+        else:
+             print(f'Una pizza {order[i+1]["Size"][0]} Margarita')
     print("Monto total: $",order_total)
-    print(order)
 
     if clientInfo != None:
         print ("Delivery a", clientInfo["direction"], "Llamar al", clientInfo["phone"])
+
+    print("Gracias por su compra. Regrese pronto")
 
 main()
  
