@@ -1,5 +1,6 @@
 from choose_ingredients import chooseIngredients
 from choose_size import *
+from new_pizza import *
 
 # Electiva: Programación con Python
 # Proyecto #1 - Pizzería
@@ -43,7 +44,12 @@ def main():
     pizza.append(selected_size)
     selected_ingredients= chooseIngredients(ingredients) #Crea lista TEMPORAL con ingredientes y precios
     pizza.append(selected_ingredients)
-    print("La pizza que ordenó:",pizza)
-    
-main()
-    
+    print("La pizza que ordenó:",pizza,"\n")
+    order.append(pizza)
+       
+add_pizza = True
+while add_pizza is True:
+    main()
+    add_pizza = newPizza()
+
+print("Resumen de la orden")
