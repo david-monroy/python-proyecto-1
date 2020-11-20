@@ -70,3 +70,20 @@ def getDrinks(drinks,quantity_pizza):
     else:
         print("¡Debe seleccionar una opción válida!")
         return getDrink(drinks)
+def delivery():
+    print("¿Cómo desea recibir su pedido?")
+    print("\td - Delivery")
+    print("\tp - Pick-Up")
+
+    opcion = input("\nSeleccione una opción: ")
+
+    if opcion == "d":
+        deliveryInfo={}
+        deliveryInfo["phone"] = input("Ingrese su número de teléfono:")
+        deliveryInfo["direction"] = input ("Ingrese su dirección:")
+        return deliveryInfo
+    elif opcion == "p":
+        print("Lo esperamos!")
+    else:
+        print("¡Debe seleccionar una opción válida!")
+        return delivery()

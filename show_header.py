@@ -8,9 +8,9 @@ def clean():
 
 def showHeader(n):
     clean()
-    print('***********************')
+    print(23*'*')
     print('*    PIZZERÍA UCAB    *')
-    print('***********************')
+    print(23*'*')
     print("***** Pizza N°", n, "******")
-    print('***********************')
+    print(23*'*')
 

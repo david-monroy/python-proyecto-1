@@ -24,10 +24,15 @@ def newPizza(sizes,ingredients,drinks,quantity_pizza):
     selected_size = chooseSize(sizes) # Crea lista TEMPORAL con tamaño y precio correspondiente
     print(selected_size)
     showHeader(quantity_pizza)
-    pizza["Tamaño"] = selected_size
-    selected_ingredients = chooseIngredients(ingredients) #Crea lista TEMPORAL con ingredientes y precios
-    pizza["Ingredientes"] = selected_ingredients
+
+    pizza["Size"] = selected_size
+    selected_ingredients= chooseIngredients(ingredients) #Crea lista TEMPORAL con ingredientes y precios
+    pizza["Ingredients"] = selected_ingredients
     showHeader(quantity_pizza)
     pizza["Total"] = calculate_pizza(pizza)
+    print(f'Usted seleccionó una pizza {pizza["Size"][0]} con', end = ' ')
+    for i in range(len(pizza["Ingredients"])):
+        print (pizza["Ingredients"][i][0], end= ' ')
+    print("\n")
     return pizza
     

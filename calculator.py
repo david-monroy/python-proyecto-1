@@ -1,7 +1,7 @@
 def calculate_pizza(pizza):
     total = 0
     for key,value in pizza.items():
-        if key == "Tamaño":
+        if key == "Size":
             total += value[1]
         else:
             for i in value:
@@ -10,7 +10,7 @@ def calculate_pizza(pizza):
 
 def calculate_order(order):
     total = 0
-    lista = list(order.values())
-    for i in lista:
-        print(i)
+    for i in range(len(order)-1):
+        total += order[i+1]["Total"]
+    print(order[len(order)-1])
     return total
