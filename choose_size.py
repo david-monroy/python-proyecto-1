@@ -1,4 +1,5 @@
-def chooseSize(sizes):
+def chooseSize(sizes, quantity_pizza):
+    showHeader(quantity_pizza)
     print("Elija un tamaño:")
     # Iteración que recorre la lista de tamaños dispolibles y los muestra
     for key, value in sizes.items():
