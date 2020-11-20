@@ -28,7 +28,10 @@ ingredients = {
     "sa": ["Salchichon", 62.5],
 }
 
-order = [] # Lista para la ORDEN, que contiene pizzas
+order = {
+    1: {"Tamaño":[], "Ingredientes":[], "Total": 0}
+}
+
 pizza = [] # Lista para la PIZZA, que contiene tamaño e ingredientes
 selected_size = [] # Lista para guardar el tamaño en cada iteración
 selected_ingredients = [] #Lista para guardar los ingredientes seleccionados para cada pizza
@@ -40,10 +43,11 @@ def main():
     print('***********************')
 
     selected_size = chooseSize(sizes) # Crea lista TEMPORAL con tamaño y precio correspondiente
-    pizza.append(selected_size)
+    print(selected_size)
+    order[1]["Tamaño"]=selected_size
     selected_ingredients= chooseIngredients(ingredients) #Crea lista TEMPORAL con ingredientes y precios
-    pizza.append(selected_ingredients)
-    print("La pizza que ordenó:",pizza)
+    order[1]["Ingredientes"] = selected_ingredients
+    print("La pizza que ordenó:", order)
     
 main()
     
