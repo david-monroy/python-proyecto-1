@@ -1,4 +1,4 @@
-from choose_size import chooseSize
+from choose_size import *
 
 # Electiva: Programación con Python
 # Proyecto #1 - Pizzería
