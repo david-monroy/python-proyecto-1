@@ -3,7 +3,7 @@ def newPizza():
     print("\ts - Sí")
     print("\tn - No")
 
-    opcion = input("Seleccione una opción: ")
+    opcion = input("\nSeleccione una opción: ")
 
     if opcion == "s":
         return True

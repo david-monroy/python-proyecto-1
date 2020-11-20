@@ -1,6 +1,7 @@
 from choose_ingredients import chooseIngredients
 from choose_size import *
 from new_pizza import *
+from show_header import *
 
 # Electiva: Programación con Python
 # Proyecto #1 - Pizzería
@@ -8,10 +9,6 @@ from new_pizza import *
 # Realizado por:
 # David Monroy CI: 26.473.543
 # Carolina Patiño CI:
-
-print('***********************')
-print('*    PIZZERÍA UCAB    *')
-print('***********************')
 
 sizes = {
     "p": ["Personal", 280],
@@ -34,22 +31,22 @@ pizza = [] # Lista para la PIZZA, que contiene tamaño e ingredientes
 selected_size = [] # Lista para guardar el tamaño en cada iteración
 selected_ingredients = [] #Lista para guardar los ingredientes seleccionados para cada pizza
 
+i = 1 # Nro de iteración
 def main():
-    if order == None:
-        print("     ¡Bienvenido!")
-    print("***** Pizza N°", len(order)+1, "******")
-    print('***********************')
-
+    showHeader(i)
     selected_size = chooseSize(sizes) # Crea lista TEMPORAL con tamaño y precio correspondiente
     pizza.append(selected_size)
+    showHeader(i)
     selected_ingredients= chooseIngredients(ingredients) #Crea lista TEMPORAL con ingredientes y precios
     pizza.append(selected_ingredients)
-    print("La pizza que ordenó:",pizza,"\n")
+    showHeader(i)
+    print("La pizza que ordenó:\n",pizza,"\n")
     order.append(pizza)
        
 add_pizza = True
 while add_pizza is True:
     main()
     add_pizza = newPizza()
+    i += 1
 
 print("Resumen de la orden")

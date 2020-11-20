@@ -4,7 +4,7 @@ def chooseSize(sizes):
     # Iteración que recorre la lista de tamaños dispolibles y los muestra
     for key, value in sizes.items():
         print("\t",key, "-",value[0])
-    option = input("Opción: ")
+    option = input("\nOpción: ")
 
     # Valida que ingresó una opción válida
     if option not in sizes.keys():
