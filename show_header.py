@@ -7,10 +7,16 @@ def clean():
         os.system ("cls") # Limpiar pantalla en Windows
 
 def showHeader(n):
+    
     clean()
     print(23*'*')
     print('*    PIZZERÍA UCAB    *')
     print(23*'*')
-    print("***** Pizza N°", n, "******")
+    if n == "done":
+        print ("** RESUMEN DE COMPRA **")
+    elif n == "thanks":
+        print ("* ¡Gracias por su compra, \nregrese prnoto! *")
+    else:
+        print("***** Pizza N°", n, "******")
     print(23*'*')
 

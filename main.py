@@ -43,22 +43,27 @@ def main():
     selected_drinks = getDrinks(drinks,quantity_pizza)
     order["Drinks"] = selected_drinks
     
-    clientInfo = delivery()
-    order_total = calculate_order(order)    
-    print(order_total)
-    showHeader(quantity_pizza)
-    print ("***** RESUMEN DE COMPRA *****")
-    print ("Su pedido tiene un total de", quantity_pizza, "pizzas")
+    clientInfo = delivery(quantity_pizza)   # Pregunta por delivery
+    order_total = calculate_order(order)    # Calcula y almacena el total de la orden
+    showHeader("done")
+
+    
+    print ("Su pedido tiene un total de", quantity_pizza, "pizzas y", len(order["Drinks"]), "bebidas:")
     for i in range(len(order)-1):
         print(f'Una pizza {order[i+1]["Size"][0]} con', end = ' ')
         for j in range(len(order[i+1]["Ingredients"])):
             print (order[i+1]["Ingredients"][j][0], end= ' ')
-        print ("por un monto de ")
-    print("----------------")
+        print ("por un monto de $", order[i+1]["Total"])
+    for i in order["Drinks"]:
+        print(f'Una {i[0]} por un monto de $', i[1])
+    print(23*'-')
     print("Monto total: $",order_total)
-
+    print(23*'-')
     if clientInfo != None:
         print ("Delivery a", clientInfo["direction"], "Llamar al", clientInfo["phone"])
+
+    thanks = input("Presione enter para finalizar: ")
+    showHeader("thanks")
 
 main()
  

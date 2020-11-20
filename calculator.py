@@ -13,5 +13,5 @@ def calculate_order(order):
     for i in range(len(order)-1):
         total += order[i+1]["Total"]
     for j in range(len(order["Drinks"])):
-        total += order["Drinks"][i][1]
+        total += order["Drinks"][j][1]
     return total

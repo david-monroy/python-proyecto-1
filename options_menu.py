@@ -48,13 +48,15 @@ def getDrinks(drinks,quantity_pizza):
     drink_option = input("\nSeleccione una opción: ")
     print("Bebidas:")
     selected_drinks = []
-    option = 0
+    
 
     #Muestra las bebidas en pantalla
-    for key, value in drinks.items():
-        print("\t",key, "-",value[0],"- $",value[1])
+    
 
     if drink_option == "s":
+        for key, value in drinks.items():
+            print("\t",key, "-",value[0],"- $",value[1])
+        option = 0
         while 1==1: 
             option = input("Ingrese bebida (enter para terminar): ")
             if option != "":
@@ -70,7 +72,8 @@ def getDrinks(drinks,quantity_pizza):
     else:
         print("¡Debe seleccionar una opción válida!")
         return getDrink(drinks)
-def delivery():
+def delivery(quantity_pizza):
+    showHeader(quantity_pizza)
     print("¿Cómo desea recibir su pedido?")
     print("\td - Delivery")
     print("\tp - Pick-Up")
