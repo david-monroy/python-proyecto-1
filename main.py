@@ -54,8 +54,8 @@ def main():
         for j in range(len(order[i+1]["Ingredients"])):
             print (order[i+1]["Ingredients"][j][0], end= ' ')
         print ("por un monto de ")
+    print("----------------")
     print("Monto total: $",order_total)
-    print(order)
 
     if clientInfo != None:
         print ("Delivery a", clientInfo["direction"], "Llamar al", clientInfo["phone"])

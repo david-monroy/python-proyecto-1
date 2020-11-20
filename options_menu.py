@@ -41,7 +41,7 @@ def chooseIngredients(ingredients):
 
 def getDrinks(drinks,quantity_pizza):
     showHeader(quantity_pizza)
-    print("¿Desea agregar una bebida a su orden?")
+    print("¿Desea agregar BEBIDAS a su orden?")
     print("\ts - Sí")
     print("\tn - No")
 
