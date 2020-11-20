@@ -1,4 +1,5 @@
 from choose_size import chooseSize
+from choose_ingredients import chooseIngredients
 
 # Electiva: Programación con Python
 # Proyecto #1 - Pizzería
@@ -17,9 +18,20 @@ sizes = {
     "g": ["Grande", 580],
 }
 
+ingredients = {
+    "ja": ["Jamón", 40],
+    "ch": ["Champiñones", 35],
+    "pi": ["Pimentón", 30],
+    "dq": ["Doble Queso", 40],
+    "ac": ["Aceitunas", 57.5],
+    "pp": ["Pepperoni", 38.5],
+    "sa": ["Salchichon", 62.5],
+}
+
 order = [] # Lista para la ORDEN, que contiene pizzas
 pizza = [] # Lista para la PIZZA, que contiene tamaño e ingredientes
 selected_size = [] # Lista para guardar el tamaño en cada iteración
+selected_ingredients = [] #Lista para guardar los ingredientes seleccionados para cada pizza
 
 def main():
     if order == None:
@@ -28,9 +40,10 @@ def main():
     print('***********************')
 
     selected_size = chooseSize(sizes) # Crea lista TEMPORAL con tamaño y precio correspondiente
-    print(selected_size)
-    pizza.append(selected_size) # Coloca el tamaño en la lista de la PIZZA
-    print(pizza)
+    pizza.append(selected_size)
+    selected_ingredients= chooseIngredients(ingredients) #Crea lista TEMPORAL con ingredientes y precios
+    pizza.append(selected_ingredients)
+    print("La pizza que ordenó:",pizza)
     
 main()
     
