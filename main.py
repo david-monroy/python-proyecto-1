@@ -14,9 +14,9 @@ sizes = {
 }
 
 drinks = {
-    "ag": ["Agua", 10],
-    "li": ["Limonada", 15],
-    "cc": ["Coca-Cola", 20],
+    "a": ["Agua", 10],
+    "l": ["Limonada", 15],
+    "c": ["Coca-Cola", 20],
 }
 
 ingredients = {
@@ -32,13 +32,16 @@ ingredients = {
 order = {}
 
 def main():
-    quantity_pizza = 0
-    add_pizza = True
+    quantity_pizza = 0  # Cantida de pizzas
+    add_pizza = True    # Booleano para detener el ciclo de peticiones
           
     while add_pizza is True:
         quantity_pizza += 1
-        order[quantity_pizza] = newPizza(sizes,ingredients,quantity_pizza)
+        order[quantity_pizza] = newPizza(sizes,ingredients,drinks,quantity_pizza) # Pedir nueva pizza
         add_pizza = anotherPizza(quantity_pizza)
+    selected_drinks = getDrinks(drinks,quantity_pizza)
+    order["Bebidas"] = selected_drinks
+    order_total = calculate_order(order)    
     print(order)
 
 main()

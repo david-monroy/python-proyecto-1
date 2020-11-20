@@ -1,5 +1,6 @@
-from options_menu import chooseSize,chooseIngredients
+from options_menu import *
 from show_header import *
+from calculator import *
 
 def anotherPizza(quantity_pizza):
     showHeader(quantity_pizza)
@@ -17,16 +18,16 @@ def anotherPizza(quantity_pizza):
         print("¡Debe seleccionar una opción válida!")
         return anotherPizza()
 
-def newPizza(sizes,ingredients,quantity_pizza):
-    order={}
-    selected_size = chooseSize(sizes, quantity_pizza) # Crea lista TEMPORAL con tamaño y precio correspondiente
+def newPizza(sizes,ingredients,drinks,quantity_pizza):
+    pizza = {}
+    showHeader(quantity_pizza)
+    selected_size = chooseSize(sizes) # Crea lista TEMPORAL con tamaño y precio correspondiente
     print(selected_size)
     showHeader(quantity_pizza)
-    order["Tamaño"]=selected_size
-    selected_ingredients= chooseIngredients(ingredients) #Crea lista TEMPORAL con ingredientes y precios
-    order["Ingredientes"] = selected_ingredients
-    order["Total"]=0
+    pizza["Tamaño"] = selected_size
+    selected_ingredients = chooseIngredients(ingredients) #Crea lista TEMPORAL con ingredientes y precios
+    pizza["Ingredientes"] = selected_ingredients
     showHeader(quantity_pizza)
-    print("La pizza que ordenó:\n", order,"\n")
-    return order
+    pizza["Total"] = calculate_pizza(pizza)
+    return pizza
     
