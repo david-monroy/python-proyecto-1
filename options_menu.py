@@ -1,10 +1,11 @@
+import time
 from show_header import *
-
 def chooseSize(sizes):
     print("Elija un tamaño:")
+    i = 1
     # Iteración que recorre la lista de tamaños dispolibles y los muestra
     for key, value in sizes.items():
-        print("\t",key, "-",value[0],"- $",value[1])
+        print("\t",key, "-",value[0])
     option = input("\nOpción: ")
 
     # Valida que ingresó una opción válida
@@ -14,14 +15,16 @@ def chooseSize(sizes):
     else:
         return sizes[option]
 
+
 def chooseIngredients(ingredients):
     print("Ingredientes:")
+    i = 1
     option = 0
     selected_ingredients=[]
 
     #Muestra los ingredientes en pantalla
     for key, value in ingredients.items():
-        print("\t",key, "-",value[0],"- $",value[1])
+        print("\t",key, "-",value[0], "-", value[1])
 
     #Permite ingresar la cantidad de ingredientes que desee el cliente
     while 1==1: 
@@ -49,9 +52,7 @@ def getDrinks(drinks,quantity_pizza):
     print("Bebidas:")
     selected_drinks = []
     
-
     #Muestra las bebidas en pantalla
-    
 
     if drink_option == "s":
         for key, value in drinks.items():
@@ -87,6 +88,8 @@ def delivery(quantity_pizza):
         return deliveryInfo
     elif opcion == "p":
         print("Lo esperamos!")
+        time.sleep(1)
+
     else:
         print("¡Debe seleccionar una opción válida!")
         return delivery()

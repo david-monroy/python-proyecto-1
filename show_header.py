@@ -15,7 +15,7 @@ def showHeader(n):
     if n == "done":
         print ("** RESUMEN DE COMPRA **")
     elif n == "thanks":
-        print ("* ¡Gracias por su compra, \nregrese prnoto! *")
+        print ("* ¡Gracias por su compra, regrese pronto! *")
     else:
         print("***** Pizza N°", n, "******")
     print(23*'*')

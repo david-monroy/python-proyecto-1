@@ -1,6 +1,7 @@
 from options_menu import *
 from show_header import *
 from calculator import *
+import time
 
 def anotherPizza(quantity_pizza):
     showHeader(quantity_pizza)
@@ -16,9 +17,9 @@ def anotherPizza(quantity_pizza):
         return False
     else:
         print("¡Debe seleccionar una opción válida!")
-        return anotherPizza()
+        return anotherPizza(quantity_pizza)
 
-def newPizza(sizes,ingredients,drinks,quantity_pizza):
+def newPizza(sizes,ingredients,quantity_pizza):
     pizza = {}
     showHeader(quantity_pizza)
     selected_size = chooseSize(sizes) # Crea lista TEMPORAL con tamaño y precio correspondiente
@@ -28,11 +29,19 @@ def newPizza(sizes,ingredients,drinks,quantity_pizza):
     pizza["Size"] = selected_size
     selected_ingredients= chooseIngredients(ingredients) #Crea lista TEMPORAL con ingredientes y precios
     pizza["Ingredients"] = selected_ingredients
-    showHeader(quantity_pizza)
     pizza["Total"] = calculate_pizza(pizza)
-    print(f'Usted seleccionó una pizza {pizza["Size"][0]} con', end = ' ')
-    for i in range(len(pizza["Ingredients"])):
-        print (pizza["Ingredients"][i][0], end= ' ')
+    if pizza["Ingredients"]!= []:
+        print(f'Usted seleccionó una pizza {pizza["Size"][0]} con', end = ' ')
+        for i in range(len(pizza["Ingredients"])):
+            if i == len(pizza["Ingredients"])-1:
+                print (pizza["Ingredients"][i][0])
+            elif i == len(pizza["Ingredients"])-2:
+                print (pizza["Ingredients"][i][0], end= ' y ')
+            else: 
+                print (pizza["Ingredients"][i][0], end= ', ')
+    else:
+        print(f'Usted seleccionó una pizza {pizza["Size"][0]} Margarita')
     print("\n")
+    time.sleep(1)
     return pizza
     
