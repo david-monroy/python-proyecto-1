@@ -1,4 +1,6 @@
 import os
+import sys
+import time
 
 def clean():
     if os.name == "posix": # Limpiar pantalla en Linux
@@ -16,6 +18,10 @@ def showHeader(n):
         print ("** RESUMEN DE COMPRA **")
     elif n == "thanks":
         print ("* ¡Gracias por su compra, regrese pronto! *")
+    elif n == "exit":
+        print ("* Pedido cancelado, ¡hasta luego! *")
+        print(23*'*')
+        sys.exit()
     else:
         print("***** Pizza N°", n, "******")
     print(23*'*')

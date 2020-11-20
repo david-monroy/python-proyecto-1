@@ -50,45 +50,28 @@ def main():
     print ("Su pedido tiene un total de", quantity_pizza, "pizzas y", len(order["Drinks"]), "bebidas:")
     for i in range(len(order)-1):
         if order[i+1]["Ingredients"] !=[]:
-            print(f'Una pizza {order[i+1]["Size"][0]} con', end = ' ')
+            print(f'Una Pizza {order[i+1]["Size"][0]} con', end = ' ')
             for j in range(len(order[i+1]["Ingredients"])):
-                if i == len(order[i+1]["Ingredients"])-1:
-                    print (order[i+1]["Ingredients"][i][0])
-                elif i == len(order[i+1]["Ingredients"])-2:
-                    print (order[i+1]["Ingredients"][i][0], end= ' y ')
+                print (order[i+1]["Ingredients"][j][0],f'(+${order[i+1]["Ingredients"][j][1]})', end = '')
+                if j == len(order[i+1]["Ingredients"])-1:
+                    print(end = ' ')
+                elif j == len(order[i+1]["Ingredients"])-2:
+                    print(end= ' y ')
                 else: 
-                    print (order[i+1]["Ingredients"][i][0], end= ', ')
-            print ("por un monto de $", order[i+1]["Total"])
+                    print(end= ', ')
         else:
-            print(f'Una pizza {order[i+1]["Size"][0]} Margarita')
+            print(f'Una pizza {order[i+1]["Size"][0]} Margarita', end = ' ')
+        print(f'por un monto de ${order[i+1]["Total"]}')
         
     for i in order["Drinks"]:
-        print(f'Una {i[0]} por un monto de $', i[1])
-    print(23*'-')
-    clientInfo = delivery(quantity_pizza)
-    order_total = calculate_order(order)    
-    print(order_total)
-    showHeader(quantity_pizza)
-    print ("***** RESUMEN DE COMPRA *****")
-    print ("Su pedido tiene un total de", quantity_pizza, "pizzas")
+        print(f'Una {i[0]} por un monto de ${i[1]}')
 
-    for i in range(len(order)-1):
-        if order[i+1]["Ingredients"] !=[]:
-            print(f'Una pizza {order[i+1]["Size"][0]} con', end = ' ')
-            for j in range(len(order[i+1]["Ingredients"])):
-                if i == len(order[i+1]["Ingredients"])-1:
-                    print (order[i+1]["Ingredients"][i][0])
-                elif i == len(order[i+1]["Ingredients"])-2:
-                    print (order[i+1]["Ingredients"][i][0], end= ' y ')
-                else: 
-                    print (order[i+1]["Ingredients"][i][0], end= ', ')
-            print ("por un monto de ")
-        else:
-             print(f'Una pizza {order[i+1]["Size"][0]} Margarita')
+    print(25*"-")
     print("Monto total: $",order_total)
-    print(23*'-')
+    print(25*"-")
+
     if clientInfo != None:
-        print ("Delivery a", clientInfo["direction"], "Llamar al", clientInfo["phone"])
+        print ("Delivery a", clientInfo["direction"], ", llamar al", clientInfo["phone"])
 
     thanks = input("Presione enter para finalizar: ")
     showHeader("thanks")

@@ -33,12 +33,13 @@ def newPizza(sizes,ingredients,quantity_pizza):
     if pizza["Ingredients"]!= []:
         print(f'Usted seleccionó una pizza {pizza["Size"][0]} con', end = ' ')
         for i in range(len(pizza["Ingredients"])):
+            print(pizza["Ingredients"][i][0],f'(+${pizza["Ingredients"][i][1]})', end = ' ')
             if i == len(pizza["Ingredients"])-1:
-                print (pizza["Ingredients"][i][0])
+                print(end = ' ')
             elif i == len(pizza["Ingredients"])-2:
-                print (pizza["Ingredients"][i][0], end= ' y ')
+                print(end= ' y ')
             else: 
-                print (pizza["Ingredients"][i][0], end= ', ')
+                print(end= ', ')
     else:
         print(f'Usted seleccionó una pizza {pizza["Size"][0]} Margarita')
     print("\n")

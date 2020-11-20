@@ -67,29 +67,53 @@ def getDrinks(drinks,quantity_pizza):
                     print("¡Debe seleccionar una opción válida!")
             else: 
                 break
-        return selected_drinks
+        
+        if (confirmation(selected_drinks)) == False:
+            return getDrinks(drinks, quantity_pizza)
+        else:
+            return selected_drinks
     elif drink_option == "n":
         return selected_drinks
     else:
         print("¡Debe seleccionar una opción válida!")
-        return getDrink(drinks)
+        return getDrinks(drinks,quantity_pizza)
 def delivery(quantity_pizza):
     showHeader(quantity_pizza)
     print("¿Cómo desea recibir su pedido?")
     print("\td - Delivery")
     print("\tp - Pick-Up")
 
-    opcion = input("\nSeleccione una opción: ")
+    option = input("\nSeleccione una opción: ")
 
-    if opcion == "d":
+    if option == "d":
         deliveryInfo={}
         deliveryInfo["phone"] = input("Ingrese su número de teléfono:")
         deliveryInfo["direction"] = input ("Ingrese su dirección:")
         return deliveryInfo
-    elif opcion == "p":
+    elif option == "p":
         print("Lo esperamos!")
         time.sleep(1)
-
     else:
         print("¡Debe seleccionar una opción válida!")
-        return delivery()
+        return delivery(quantity_pizza)
+
+def confirmation(suborder):
+    print(f'\nUsted ha agregado:', end= ' ')
+    for i in range(len(suborder)):
+        if i == len(suborder)-1:
+            print (suborder[i][0])
+        elif i == len(suborder)-2:
+            print (suborder[i][0], end= ' y ')
+        else: 
+            print (suborder[i][0], end= ', ')
+    print("\t1. Confirmar y continuar\n\t2. Repetir selección\n\t3. Cancelar pedido y salir")
+    option = input("\nSeleccione una opción: ")
+    if option == "1":
+        return suborder
+    elif option == "2":
+        return False
+    elif option == "3":
+        showHeader("exit")
+    else:
+        print("¡Debe seleccionar una opción válida!")
+        return confirmation(suborder)
