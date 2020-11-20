@@ -26,27 +26,29 @@ ingredients = {
     "sa": ["Salchichon", 62.5],
 }
 
-order = [] # Lista para la ORDEN, que contiene pizzas
+order = {}
+
 pizza = [] # Lista para la PIZZA, que contiene tamaño e ingredientes
 selected_size = [] # Lista para guardar el tamaño en cada iteración
 selected_ingredients = [] #Lista para guardar los ingredientes seleccionados para cada pizza
-
-i = 1 # Nro de iteración
-def main():
-    showHeader(i)
-    selected_size = chooseSize(sizes) # Crea lista TEMPORAL con tamaño y precio correspondiente
-    pizza.append(selected_size)
-    showHeader(i)
-    selected_ingredients= chooseIngredients(ingredients) #Crea lista TEMPORAL con ingredientes y precios
-    pizza.append(selected_ingredients)
-    showHeader(i)
-    print("La pizza que ordenó:\n",pizza,"\n")
-    order.append(pizza)
-       
 add_pizza = True
-while add_pizza is True:
-    main()
-    add_pizza = newPizza()
-    i += 1
+quantity_pizza=0
 
-print("Resumen de la orden")
+def main(quantity_pizza):
+    showHeader(quantity_pizza)
+    selected_size = chooseSize(sizes) # Crea lista TEMPORAL con tamaño y precio correspondiente
+    print(selected_size)
+    showHeader(quantity_pizza)
+    order[quantity_pizza]= {"Tamaño":[], "Ingredientes":[], "Total": 0}
+    order[quantity_pizza]["Tamaño"]=selected_size
+    selected_ingredients= chooseIngredients(ingredients) #Crea lista TEMPORAL con ingredientes y precios
+    order[quantity_pizza]["Ingredientes"] = selected_ingredients
+    showHeader(quantity_pizza)
+    print("La pizza que ordenó:\n", order,"\n")
+       
+while add_pizza is True:
+    quantity_pizza+=1
+    main(quantity_pizza)
+    add_pizza = newPizza()
+
+ 
