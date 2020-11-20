@@ -46,7 +46,6 @@ def main():
     clientInfo = delivery(quantity_pizza)   # Pregunta por delivery
     order_total = calculate_order(order)    # Calcula y almacena el total de la orden
     showHeader("done")
-
     
     print ("Su pedido tiene un total de", quantity_pizza, "pizzas y", len(order["Drinks"]), "bebidas:")
     for i in range(len(order)-1):
