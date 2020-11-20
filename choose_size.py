@@ -8,8 +8,8 @@ def chooseSize(sizes):
 
     # Valida que ingresó una opción válida
     if option not in sizes.keys():
-        print("¡Debe seleccionar una opción válida!")
-        chooseSize(sizes)
+        print("¡Debe seleccionar una opción válida!", option)
+        return chooseSize(sizes)
     else:
         return sizes[option]
 

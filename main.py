@@ -1,5 +1,5 @@
-from choose_size import chooseSize
 from choose_ingredients import chooseIngredients
+from choose_size import *
 
 # Electiva: Programación con Python
 # Proyecto #1 - Pizzería
