@@ -57,8 +57,10 @@ def getDrinks(drinks,quantity_pizza):
     if drink_option == "s":
         for key, value in drinks.items():
             print("\t",key, "-",value[0],"- $",value[1])
+        attemp = 0
         option = 0
         while 1==1: 
+            attemp += 1
             option = input("Ingrese bebida (enter para terminar): ")
             if option != "":
                 if option in drinks.keys():
@@ -66,7 +68,10 @@ def getDrinks(drinks,quantity_pizza):
                 else:
                     print("¡Debe seleccionar una opción válida!")
             else: 
-                break
+                if attemp == 1:
+                    print("¡Debe seleccionar al menos una bebida!\n")
+                else:
+                    break
         
         if (confirmation(selected_drinks)) == False:
             return getDrinks(drinks, quantity_pizza)
@@ -91,7 +96,7 @@ def delivery(quantity_pizza):
         deliveryInfo["direction"] = input ("Ingrese su dirección:")
         return deliveryInfo
     elif option == "p":
-        print("Lo esperamos!")
+        print("¡Lo esperamos!")
         time.sleep(1)
     else:
         print("¡Debe seleccionar una opción válida!")

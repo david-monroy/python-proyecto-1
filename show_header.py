@@ -9,7 +9,6 @@ def clean():
         os.system ("cls") # Limpiar pantalla en Windows
 
 def showHeader(n):
-    
     clean()
     print(23*'*')
     print('*    PIZZERÍA UCAB    *')
