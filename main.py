@@ -40,7 +40,7 @@ def main():
         quantity_pizza+=1
         order[quantity_pizza] = newPizza(sizes,ingredients,quantity_pizza) # Pedir nueva pizza
         add_pizza = anotherPizza(quantity_pizza)
-    #selected_drinks = getDrinks(drinks,quantity_pizza)
+    selected_drinks = getDrinks(drinks,quantity_pizza)
     order["Drinks"] = selected_drinks
     
     clientInfo = delivery()

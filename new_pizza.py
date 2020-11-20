@@ -5,7 +5,7 @@ import time
 
 def anotherPizza(quantity_pizza):
     showHeader(quantity_pizza)
-    print("¿Desea agregar otra pizza a su orden?")
+    print("¿Desea agregar otra PIZZA a su orden?")
     print("\ts - Sí")
     print("\tn - No")
 
