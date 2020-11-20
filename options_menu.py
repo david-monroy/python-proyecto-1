@@ -22,7 +22,7 @@ def chooseIngredients(ingredients):
 
     #Muestra los ingredientes en pantalla
     for key, value in ingredients.items():
-        print("\t",key, "-",value[0])
+        print("\t",key, "-",value[0], "-", value[1])
 
     #Permite ingresar la cantidad de ingredientes que desee el cliente
     while 1==1: 
@@ -39,3 +39,21 @@ def chooseIngredients(ingredients):
             break
 
     return selected_ingredients
+
+def delivery():
+    print("¿Cómo desea recibir su pedido?")
+    print("\td - Delivery")
+    print("\tp - Pick-Up")
+
+    opcion = input("\nSeleccione una opción: ")
+
+    if opcion == "d":
+        deliveryInfo={}
+        deliveryInfo["phone"] = input("Ingrese su número de teléfono:")
+        deliveryInfo["direction"] = input ("Ingrese su dirección:")
+        return deliveryInfo
+    elif opcion == "p":
+        print("Lo esperamos!")
+    else:
+        print("¡Debe seleccionar una opción válida!")
+        return delivery()
