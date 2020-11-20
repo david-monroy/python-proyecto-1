@@ -3,11 +3,11 @@ def newPizza():
     print("\ts - Sí")
     print("\tn - No")
 
-    opcion = input("\nSeleccione una opción: ")
+    option = input("\nSeleccione una opción: ")
 
-    if opcion == "s":
+    if option == "s":
         return True
-    elif opcion == "n":
+    elif option == "n":
         return False
     else:
         print("¡Debe seleccionar una opción válida!")

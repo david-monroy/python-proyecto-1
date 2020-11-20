@@ -16,6 +16,12 @@ sizes = {
     "g": ["Grande", 580],
 }
 
+drinks = {
+    "ag": ["Agua", 10],
+    "li": ["Limonada", 15],
+    "cc": ["Coca-Cola", 20],
+}
+
 ingredients = {
     "ja": ["Jamón", 40],
     "ch": ["Champiñones", 35],
@@ -45,6 +51,8 @@ def main(quantity_pizza):
     order[quantity_pizza]["Ingredientes"] = selected_ingredients
     showHeader(quantity_pizza)
     print("La pizza que ordenó:\n", order,"\n")
+    selected_drink = getDrink(drinks)
+    print(selected_drink)
        
 while add_pizza is True:
     quantity_pizza+=1

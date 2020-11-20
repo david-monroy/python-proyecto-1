@@ -1,6 +1,5 @@
 def chooseIngredients(ingredients):
     print("Ingredientes:")
-    i = 1
     option = 0
     selected_ingredients=[]
 
